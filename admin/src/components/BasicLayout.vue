@@ -5,7 +5,7 @@
   </el-aside>
   <el-container>
     <el-header>
-      <el-button type="info"><i class="el-icon-back"></i>退出登录</el-button>
+      <el-button type="info" @click="exit"><i class="el-icon-back"></i>退出登录</el-button>
     </el-header>
     <el-main>
       <router-view></router-view>
@@ -18,6 +18,23 @@
 <script>
 import Sider from './BasicLayoutSider'
 export default {
+  watch: {
+    $route: 'router'
+  },
+  created() {
+    this.router()
+  },
+  methods: {
+    router () {
+      let token = localStorage.getItem('token')
+      if(!token)this.$router.replace({name:'Login'})
+    },
+    exit () {
+      localStorage.removeItem('token')
+      this.$message.success('退出成功!')
+      this.$router.push({path:'/login'})
+    }
+  },
   components: {
     Sider
   }

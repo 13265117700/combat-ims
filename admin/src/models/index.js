@@ -13,5 +13,8 @@ export default {
   },
   articleContent: function (id, data = {}) {
     return request.get(api.articleContent(id), data)
+  },
+  login: function (data ={}){
+    return request.post(api.login,data)
   }
 }

@@ -3,6 +3,7 @@ export default {
   aritcleIndex: `/all/index`,
   articleClassifyIndex: (id) => `/all/index/${id}`,
   articleContent: (id) => `/all/index/aritcle/${id}`,
+  login: `/all/login`,
   userShow: `/api/admin/user`,
   user: (id) => `/api/admin/user/${id}`,
   classifyShow: `/api/admin/classify`,
